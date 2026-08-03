@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createInitialState, updateGame } from "@/lib/game/engine";
 import {
   CANVAS_HEIGHT,
@@ -34,35 +34,31 @@ function render(ctx: CanvasRenderingContext2D, state: GameState) {
   ctx.fill();
 }
 
-export default function PongGame() {
+type PongGameProps = {
+  topEntries: LeaderboardEntry[];
+  onScoreSubmitted: () => void;
+};
+
+export default function PongGame({
+  topEntries,
+  onScoreSubmitted,
+}: PongGameProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const stateRef = useRef<GameState>(createInitialState());
   const paddleCenterRef = useRef(CANVAS_WIDTH / 2);
   const movingLeftRef = useRef(false);
   const movingRightRef = useRef(false);
   const hasHandledGameOverRef = useRef(false);
-  const topEntriesRef = useRef<LeaderboardEntry[]>([]);
+  const topEntriesRef = useRef<LeaderboardEntry[]>(topEntries);
 
   const [score, setScore] = useState(0);
   const [status, setStatus] = useState<GameStatus>("playing");
   const [showInitialsForm, setShowInitialsForm] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const refreshLeaderboard = useCallback(async () => {
-    try {
-      const res = await fetch("/api/leaderboard");
-      if (!res.ok) return;
-      const data = await res.json();
-      topEntriesRef.current = data.entries;
-    } catch {
-      // Leaderboard unavailable — qualification check just defaults to
-      // "always allow an attempt" and the server validates on submit.
-    }
-  }, []);
-
   useEffect(() => {
-    refreshLeaderboard();
-  }, [refreshLeaderboard]);
+    topEntriesRef.current = topEntries;
+  }, [topEntries]);
 
   // Game loop
   useEffect(() => {
@@ -165,16 +161,16 @@ export default function PongGame() {
   function handleSubmitted() {
     setSubmitted(true);
     setShowInitialsForm(false);
-    refreshLeaderboard();
+    onScoreSubmitted();
   }
 
   return (
-    <div className="mx-auto" style={{ width: CANVAS_WIDTH }}>
+    <div className="mx-auto w-full max-w-[380px]">
       <div className="mb-2 flex items-center justify-between">
         <span className="font-mono text-lg">Score: {score}</span>
         {status === "playing" && (
-          <span className="text-sm text-gray-500">
-            Move with mouse or arrow keys
+          <span className="text-sm text-neutral-400">
+            Mouse or arrow keys
           </span>
         )}
       </div>
@@ -184,7 +180,7 @@ export default function PongGame() {
           width={CANVAS_WIDTH}
           height={CANVAS_HEIGHT}
           onPointerMove={handlePointerMove}
-          className="touch-none rounded-lg border border-black/10 dark:border-white/10"
+          className="h-auto w-full touch-none rounded-lg border border-white/10"
         />
         {status === "gameover" && (
           <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-black/70">

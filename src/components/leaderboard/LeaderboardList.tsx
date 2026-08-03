@@ -1,12 +1,17 @@
-import { getTopScores } from "@/lib/db/leaderboard";
+import type { LeaderboardEntry } from "@/lib/leaderboard-types";
 
-export default async function LeaderboardTable() {
-  let entries;
-  try {
-    entries = await getTopScores(10);
-  } catch {
+type LeaderboardListProps = {
+  entries: LeaderboardEntry[];
+  unavailable?: boolean;
+};
+
+export default function LeaderboardList({
+  entries,
+  unavailable,
+}: LeaderboardListProps) {
+  if (unavailable) {
     return (
-      <p className="text-sm text-gray-500">
+      <p className="text-sm text-neutral-400">
         Leaderboard is unavailable right now — make sure the database is
         provisioned and connected.
       </p>
@@ -15,20 +20,20 @@ export default async function LeaderboardTable() {
 
   if (entries.length === 0) {
     return (
-      <p className="text-sm text-gray-500">
+      <p className="text-sm text-neutral-400">
         No scores yet — be the first on the board!
       </p>
     );
   }
 
   return (
-    <ol className="divide-y divide-black/10 dark:divide-white/10 rounded-lg border border-black/10 dark:border-white/10">
+    <ol className="divide-y divide-white/10 rounded-lg border border-white/10">
       {entries.map((entry, index) => (
         <li
           key={`${entry.initials}-${entry.created_at}-${index}`}
           className="flex items-center justify-between px-4 py-2"
         >
-          <span className="font-mono text-sm text-gray-500 w-6">
+          <span className="w-6 font-mono text-sm text-neutral-500">
             {index + 1}
           </span>
           <span className="flex-1 font-semibold tracking-widest">
