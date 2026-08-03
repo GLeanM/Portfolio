@@ -1,17 +1,17 @@
 // One-time (idempotent) schema setup. Run after provisioning the database:
 //   node --env-file=.env.local scripts/init-db.mjs
-import { neon } from "@neondatabase/serverless";
+import postgres from "postgres";
 
 const connectionString = process.env.DATABASE_URL ?? process.env.POSTGRES_URL;
 
 if (!connectionString) {
   console.error(
-    "Missing DATABASE_URL / POSTGRES_URL. Run `vercel env pull .env.local` first, then re-run with --env-file=.env.local."
+    "Missing DATABASE_URL / POSTGRES_URL. Start the local database with `npm run db:up` and set DATABASE_URL in .env.local, then re-run with --env-file=.env.local."
   );
   process.exit(1);
 }
 
-const sql = neon(connectionString);
+const sql = postgres(connectionString);
 
 const statements = [
   `CREATE TABLE IF NOT EXISTS leaderboard_entries (
@@ -24,7 +24,9 @@ const statements = [
 ];
 
 for (const statement of statements) {
-  await sql.query(statement);
+  await sql.unsafe(statement);
 }
 
 console.log("Database schema is up to date.");
+
+await sql.end();

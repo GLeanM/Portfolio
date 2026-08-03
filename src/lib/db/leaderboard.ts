@@ -5,13 +5,13 @@ export type { LeaderboardEntry } from "@/lib/leaderboard-types";
 
 export async function getTopScores(limit = 10): Promise<LeaderboardEntry[]> {
   const sql = getSql();
-  const rows = await sql`
+  const rows = await sql<LeaderboardEntry[]>`
     SELECT initials, score, created_at
     FROM leaderboard_entries
     ORDER BY score DESC, created_at ASC
     LIMIT ${limit};
   `;
-  return rows as LeaderboardEntry[];
+  return rows;
 }
 
 export async function insertScore(
@@ -19,10 +19,10 @@ export async function insertScore(
   score: number
 ): Promise<LeaderboardEntry> {
   const sql = getSql();
-  const rows = await sql`
+  const rows = await sql<LeaderboardEntry[]>`
     INSERT INTO leaderboard_entries (initials, score)
     VALUES (${initials}, ${score})
     RETURNING initials, score, created_at;
   `;
-  return rows[0] as LeaderboardEntry;
+  return rows[0];
 }

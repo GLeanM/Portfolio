@@ -1,6 +1,6 @@
-import { neon, type NeonQueryFunction } from "@neondatabase/serverless";
+import postgres from "postgres";
 
-let sqlClient: NeonQueryFunction<false, false> | null = null;
+let sqlClient: postgres.Sql | null = null;
 
 // Lazily created so `next build` doesn't fail when no database is
 // provisioned yet — the connection string is only required once a
@@ -16,7 +16,7 @@ export function getSql() {
       );
     }
 
-    sqlClient = neon(connectionString);
+    sqlClient = postgres(connectionString);
   }
 
   return sqlClient;
