@@ -1,4 +1,6 @@
+import Hero from "@/components/hero/Hero";
 import Bio from "@/components/about/Bio";
+import PhotoCarousel from "@/components/gallery/PhotoCarousel";
 import ProjectsSection from "@/components/about/ProjectsSection";
 import GamePanel from "@/components/game/GamePanel";
 import LinksSection from "@/components/links/LinksSection";
@@ -18,21 +20,25 @@ export default async function HomePage() {
 
   return (
     <main>
-      <div className="mx-auto max-w-6xl px-4 md:px-8">
-        <div className="grid grid-cols-1 gap-12 py-12 md:grid-cols-[380px_1fr] md:gap-16 md:py-20">
-          <div className="flex justify-center md:sticky md:top-12 md:h-fit md:justify-start md:self-start">
-            <GamePanel
-              initialEntries={initialEntries}
-              initialUnavailable={initialUnavailable}
-            />
-          </div>
-          <div>
-            <Bio />
-            <ProjectsSection />
+      <Hero />
+      <div className="relative z-10 bg-background">
+        <div className="mx-auto max-w-6xl px-4 md:px-8">
+          <div className="grid grid-cols-1 gap-12 py-12 md:grid-cols-[1fr_380px] md:gap-16 md:py-20">
+            <div>
+              <Bio />
+              <PhotoCarousel />
+              <ProjectsSection />
+            </div>
+            <div className="flex justify-center md:sticky md:top-12 md:h-fit md:justify-start md:self-start">
+              <GamePanel
+                initialEntries={initialEntries}
+                initialUnavailable={initialUnavailable}
+              />
+            </div>
           </div>
         </div>
+        <LinksSection />
       </div>
-      <LinksSection />
     </main>
   );
 }
