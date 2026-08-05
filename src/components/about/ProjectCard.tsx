@@ -28,7 +28,7 @@ export default function ProjectCard({ project, isOpen, onSelect }: ProjectCardPr
       >
         {title}
       </motion.h3>
-      <p className="mt-2 text-sm text-neutral-400">{description}</p>
+      <p className="mt-2 text-sm">{description}</p>
     </motion.button>
   );
 }

@@ -11,7 +11,7 @@ export default function LeaderboardList({
 }: LeaderboardListProps) {
   if (unavailable) {
     return (
-      <p className="text-sm text-neutral-400">
+      <p className="text-sm">
         Leaderboard is unavailable right now — make sure the database is
         provisioned and connected.
       </p>
@@ -20,7 +20,7 @@ export default function LeaderboardList({
 
   if (entries.length === 0) {
     return (
-      <p className="text-sm text-neutral-400">
+      <p className="text-sm">
         No scores yet — be the first on the board!
       </p>
     );
@@ -33,7 +33,7 @@ export default function LeaderboardList({
           key={`${entry.initials}-${entry.created_at}-${index}`}
           className="flex items-center justify-between px-4 py-2"
         >
-          <span className="w-6 font-mono text-sm text-neutral-500">
+          <span className="w-6 font-mono text-sm">
             {index + 1}
           </span>
           <span className="flex-1 font-semibold tracking-widest">

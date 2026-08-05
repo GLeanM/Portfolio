@@ -51,7 +51,7 @@ export default function InitialsForm({
       className="flex flex-col items-center gap-3 text-white"
     >
       <p className="text-lg font-semibold">New high score: {score}!</p>
-      <p className="text-sm text-gray-300">
+      <p className="text-sm">
         Enter your initials for the leaderboard
       </p>
       <input

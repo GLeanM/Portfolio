@@ -38,7 +38,7 @@ export default function GamePanel({
   if (mode === "choice") {
     return (
       <div className="flex min-h-[300px] w-full max-w-[380px] flex-col items-center justify-center gap-4 rounded-lg border border-white/10 px-6 py-12 text-center">
-        <p className="text-sm text-neutral-400">What would you like to do?</p>
+        <p className="text-sm">What would you like to do?</p>
         <div className="flex flex-col gap-3 sm:flex-row">
           <button
             onClick={() => setMode("game")}
@@ -65,7 +65,7 @@ export default function GamePanel({
           className={
             mode === "game"
               ? "rounded-full bg-white/10 px-3 py-1 text-white"
-              : "rounded-full px-3 py-1 text-neutral-400 hover:text-white"
+              : "rounded-full px-3 py-1"
           }
         >
           Play
@@ -75,7 +75,7 @@ export default function GamePanel({
           className={
             mode === "leaderboard"
               ? "rounded-full bg-white/10 px-3 py-1 text-white"
-              : "rounded-full px-3 py-1 text-neutral-400 hover:text-white"
+              : "rounded-full px-3 py-1"
           }
         >
           Leaderboard

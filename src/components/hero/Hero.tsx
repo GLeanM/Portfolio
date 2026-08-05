@@ -39,14 +39,14 @@ export default function Hero() {
         <h1 className="text-5xl font-light tracking-tight sm:text-7xl">
           Michael Glean
         </h1>
-        <p className="max-w-md text-neutral-400 sm:text-lg">
+        <p className="max-w-md sm:text-lg">
           Software Engineer
         </p>
       </motion.div>
 
       <motion.span
         style={{ opacity: contentOpacity }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-xs uppercase tracking-widest text-neutral-500"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-xs uppercase tracking-widest"
       >
         Scroll
       </motion.span>

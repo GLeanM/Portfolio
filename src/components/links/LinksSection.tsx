@@ -14,7 +14,7 @@ export default function LinksSection() {
                 ? undefined
                 : "noopener noreferrer"
             }
-            className="text-sm text-neutral-400 hover:text-white"
+            className="text-sm"
           >
             {link.label}
           </a>

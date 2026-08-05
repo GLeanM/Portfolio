@@ -42,7 +42,7 @@ export default function ProjectModal({ project, onClose, onExited }: ProjectModa
             aria-modal="true"
             aria-labelledby="project-modal-title"
             onClick={(event) => event.stopPropagation()}
-            className="relative max-h-[80vh] w-full max-w-lg overflow-y-auto rounded-lg border border-white/10 bg-neutral-900 p-6"
+            className="relative max-h-[80vh] w-full max-w-2xl overflow-y-auto rounded-lg border border-white/10 bg-neutral-900 p-8"
           >
             <button
               type="button"
@@ -64,7 +64,7 @@ export default function ProjectModal({ project, onClose, onExited }: ProjectModa
               animate={{ opacity: 1, transition: { delay: 0.15 } }}
               exit={{ opacity: 0 }}
             >
-              <p className="mt-4 text-sm text-neutral-400">
+              <p className="mt-4 text-sm">
                 {project.fullDescription ?? project.description}
               </p>
               {project.links && project.links.length > 0 && (

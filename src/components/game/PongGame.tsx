@@ -169,7 +169,7 @@ export default function PongGame({
       <div className="mb-2 flex items-center justify-between">
         <span className="font-mono text-lg">Score: {score}</span>
         {status === "playing" && (
-          <span className="text-sm text-neutral-400">
+          <span className="text-sm">
             Mouse or arrow keys
           </span>
         )}
