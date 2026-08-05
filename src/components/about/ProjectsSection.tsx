@@ -7,6 +7,7 @@ import ProjectModal from "./ProjectModal";
 
 export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [claimedTitle, setClaimedTitle] = useState<string | null>(null);
 
   return (
     <section>
@@ -18,11 +19,19 @@ export default function ProjectsSection() {
           <ProjectCard
             key={project.title}
             project={project}
-            onSelect={() => setSelectedProject(project)}
+            isOpen={claimedTitle === project.title}
+            onSelect={() => {
+              setSelectedProject(project);
+              setClaimedTitle(project.title);
+            }}
           />
         ))}
       </div>
-      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+        onExited={() => setClaimedTitle(null)}
+      />
     </section>
   );
 }
