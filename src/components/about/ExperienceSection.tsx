@@ -3,7 +3,9 @@ import { experience } from "@/data/experience";
 export default function ExperienceSection() {
   return (
     <section className="mb-12">
-      <h2 className="mb-4 text-4xl font-light tracking-tight">Experience</h2>
+      <div className="relative mb-4 inline-block">
+        <h2 className="text-4xl font-light tracking-tight">Experience</h2>
+      </div>
       <ul className="flex flex-col gap-4">
         {experience.map((job) => (
           <li

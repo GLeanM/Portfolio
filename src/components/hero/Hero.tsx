@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { MountainSilhouette, ClimberSilhouette } from "@/components/decor/RockClimbing";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -11,6 +12,7 @@ export default function Hero() {
   });
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const climberY = useTransform(scrollYProgress, [0, 1], ["0%", "55%"]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
@@ -20,8 +22,6 @@ export default function Hero() {
       className="sticky top-0 z-0 flex h-dvh items-center justify-center overflow-hidden bg-background"
     >
       <motion.div aria-hidden style={{ y: backgroundY }} className="absolute inset-0">
-        <div className="absolute left-1/4 top-1/3 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-sky-500/20 blur-[120px]" />
-        <div className="absolute bottom-1/3 right-1/4 h-[380px] w-[380px] translate-x-1/2 translate-y-1/2 rounded-full bg-sky-400/10 blur-[140px]" />
         <div
           className="absolute inset-0 opacity-[0.15]"
           style={{
@@ -30,6 +30,15 @@ export default function Hero() {
             backgroundSize: "28px 28px",
           }}
         />
+        <MountainSilhouette className="absolute bottom-0 left-0 h-[45vh] w-full" />
+      </motion.div>
+
+      <motion.div
+        aria-hidden
+        style={{ y: climberY }}
+        className="absolute left-[43%] top-[53%] h-24 w-24 -translate-x-1/2 -rotate-6"
+      >
+        <ClimberSilhouette className="h-full w-full" />
       </motion.div>
 
       <motion.div

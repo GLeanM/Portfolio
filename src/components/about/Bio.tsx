@@ -1,25 +1,13 @@
-import Image from "next/image";
-
 export default function Bio() {
   return (
     <section className="mb-12 flex flex-col items-center gap-6 text-center sm:flex-row sm:items-start sm:text-left">
-      <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border border-white/10 sm:h-32 sm:w-32">
-        <Image
-          src="/profile-placeholder.svg"
-          alt="Portrait of Michael Glean"
-          fill
-          sizes="128px"
-          className="object-cover"
-          unoptimized
-          preload
-        />
-      </div>
       <div>
-        <h2 className="text-4xl font-light tracking-tight">Michael Glean</h2>
+        <h2 className="text-4xl font-light tracking-tight">Who am I?</h2>
         <p className="mt-4">
           Hi, I&apos;m Michael Glean! I&apos;m a software engineer with a
-          passion for building user-friendly applications. I love exploring
-          new technologies and sharing my knowledge with others.
+          passion for building user-friendly applications that help people. I love exploring
+          new technologies and learning! I have seen it all working on projects on the frontend, backend and mobile end!
+          Some of my passions include Tech, Soccer, Rock Climbing, Working out, and dancing! While you&apos;re here try to beat my highscore on pong! (to the left of the bio)
         </p>
       </div>
     </section>
