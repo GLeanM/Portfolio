@@ -1,6 +1,7 @@
 import Hero from "@/components/hero/Hero";
 import Bio from "@/components/about/Bio";
 import PhotoCarousel from "@/components/gallery/PhotoCarousel";
+import ExperienceSection from "@/components/about/ExperienceSection";
 import ProjectsSection from "@/components/about/ProjectsSection";
 import GamePanel from "@/components/game/GamePanel";
 import LinksSection from "@/components/links/LinksSection";
@@ -27,6 +28,7 @@ export default async function HomePage() {
             <div>
               <Bio />
               <PhotoCarousel />
+              <ExperienceSection />
               <ProjectsSection />
             </div>
             <div className="flex justify-center md:sticky md:top-12 md:h-fit md:justify-start md:self-start">

@@ -36,7 +36,7 @@ export default function Hero() {
         style={{ y: contentY, opacity: contentOpacity }}
         className="relative z-10 flex flex-col items-center gap-4 px-4 text-center"
       >
-        <h1 className="text-5xl font-light tracking-tight sm:text-7xl">
+        <h1 className="text-5xl font-light tracking-tight sm:text-8xl">
           Michael Glean
         </h1>
         <p className="max-w-md sm:text-lg">

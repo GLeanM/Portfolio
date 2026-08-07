@@ -15,7 +15,7 @@ export default function Bio() {
         />
       </div>
       <div>
-        <h2 className="text-3xl font-light tracking-tight">Michael Glean</h2>
+        <h2 className="text-4xl font-light tracking-tight">Michael Glean</h2>
         <p className="mt-4">
           Hi, I&apos;m Michael Glean! I&apos;m a software engineer with a
           passion for building user-friendly applications. I love exploring

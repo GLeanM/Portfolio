@@ -20,7 +20,7 @@ export default function PhotoCarousel() {
 
   return (
     <section className="mb-12">
-      <h2 className="mb-4 text-2xl font-light tracking-tight">Snapshots</h2>
+      <h2 className="mb-4 text-4xl font-light tracking-tight">Snapshots</h2>
       <div className="overflow-hidden rounded-lg" ref={emblaRef}>
         <div className="flex touch-pan-y">
           {photos.map((photo, index) => (
