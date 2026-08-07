@@ -55,7 +55,7 @@ export default function ProjectModal({ project, onClose, onExited }: ProjectModa
             <motion.h3
               layoutId={`project-title-${project.title}`}
               id="project-modal-title"
-              className="pr-10 text-xl font-medium"
+              className="pr-10 text-2xl font-medium"
             >
               {project.title}
             </motion.h3>
@@ -64,7 +64,7 @@ export default function ProjectModal({ project, onClose, onExited }: ProjectModa
               animate={{ opacity: 1, transition: { delay: 0.15 } }}
               exit={{ opacity: 0 }}
             >
-              <p className="mt-4 text-sm">
+              <p className="mt-4 text-base">
                 {project.fullDescription ?? project.description}
               </p>
               {project.links && project.links.length > 0 && (

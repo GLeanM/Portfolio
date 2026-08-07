@@ -6,6 +6,7 @@ export type ProjectLink = {
 export type Project = {
   title: string;
   description: string;
+  tech: string[];
   fullDescription?: string;
   links?: ProjectLink[];
 };
@@ -13,7 +14,8 @@ export type Project = {
 // Placeholder content — replace with your real projects.
 export const projects: Project[] = [
   {
-    title: "Project One",
+    title: "VR Workout Environment",
+    tech: ["Unity", "C#", "Oculus SDK"],
     description:
       "A short description of this project: what it does, what you built, and what you used to build it.",
     fullDescription:
@@ -22,6 +24,7 @@ export const projects: Project[] = [
   },
   {
     title: "Project Two",
+    tech: ["Tech A", "Tech B"],
     description:
       "Another project worth mentioning. Swap this out with something you're proud of.",
     fullDescription:
@@ -30,6 +33,7 @@ export const projects: Project[] = [
   },
   {
     title: "SmartWaste",
+    tech: ["TensorFlow", "CNN"],
     description: "A deep learning-powered web application that classifies household waste as compost, recycling, or landfill from a single image.",
     fullDescription:
       "This project is an end-to-end image classification system that helps users determine the correct way to dispose of household waste."

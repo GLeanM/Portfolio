@@ -11,10 +11,10 @@ export default function ExperienceSection() {
             className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1"
           >
             <div>
-              <span className="font-medium">{job.company}</span>
-              <span className="text-sm"> — {job.role}</span>
+              <span className="font-bold text-lg">{job.company}</span>
+              <span className="text-lg"> — {job.role}</span>
             </div>
-            <span className="whitespace-nowrap text-sm">
+            <span className="whitespace-nowrap text-lg">
               {job.start} – {job.end}
             </span>
           </li>
