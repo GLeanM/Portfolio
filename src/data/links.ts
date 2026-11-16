@@ -6,6 +6,4 @@ export type SocialLink = {
 export const links: SocialLink[] = [
   { label: "GitHub", href: "https://github.com/GleanM" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/michaelglean/" },
-  { label: "Email", href: "mailto:mglean2004@gmail.com" },
-  { label: "Resume", href: "/resume.pdf" },
-];
+  { label: "Email", href: "mailto:mglean2004@gmail.com" },];

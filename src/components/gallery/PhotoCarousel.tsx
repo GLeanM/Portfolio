@@ -34,8 +34,7 @@ export default function PhotoCarousel() {
                 fill
                 sizes="(min-width: 640px) 60vw, 85vw"
                 className="rounded-lg object-cover"
-                unoptimized
-                preload={index === 0}
+                priority={index === 0}
               />
             </div>
           ))}
