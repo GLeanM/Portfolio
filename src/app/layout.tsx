@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "My Site",
+  title: "Michael Glean",
   description: "About me, my projects, and a Pong mini-game",
 };
 
